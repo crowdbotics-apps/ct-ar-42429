@@ -1,8 +1,10 @@
+import { useNavigation } from "@react-navigation/native";
 import { Pressable } from "react-native";
 import React from "react";
 import { Text, StyleSheet, View, ScrollView, Image } from "react-native";
 
 const EventsAdvancedScreen = () => {
+  const navigation = useNavigation();
   return <ScrollView>
       <View style={styles.container}>
         <View style={styles.header}>
@@ -16,16 +18,26 @@ const EventsAdvancedScreen = () => {
         <Text style={styles.headingTxt}>Event type</Text>
         <View style={styles.tabView}>
           <Pressable><View style={styles.tabItem}>
-            <Text style={styles.LrfBLiOe}>{"Estate Sale"}</Text>
+            <Pressable onPress={() => {
+              navigation.navigate("eventsSimple");
+            }}><Text style={styles.LrfBLiOe}>{"Estate Sale"}</Text></Pressable>
           </View></Pressable>
           <View style={styles.tabItem}>
-            <Text style={styles.bbPzwpMZ}>{"Online Auction"}</Text>
+            <Pressable onPress={() => {
+            navigation.navigate("EventsSimpleScreen3Copy");
+          }}><Text style={styles.bbPzwpMZ}>{"Online Auction"}</Text></Pressable>
           </View>
-          <View style={[styles.tabItem, styles.selectedTab]}>
-            <Text style={styles.ptJHhljE}>{"Vehicles"}</Text>
-          </View>
+          <Pressable onPress={() => {
+          navigation.navigate("EventsSimpleScreen3CopyCopy", {});
+        }}><View style={[styles.tabItem, styles.selectedTab]}>
+            <Pressable onPress={() => {
+              navigation.navigate("EventsSimpleScreen3CopyCopy", {});
+            }}><Text style={styles.ptJHhljE}>{"Vehicles"}</Text></Pressable>
+          </View></Pressable>
           <View style={styles.tabItem}>
-            <Text style={styles.HWtwtIBl}>{"Specialty"}</Text>
+            <Pressable onPress={() => {
+            navigation.navigate("EventsSimpleScreen3Copy1", {});
+          }}><Text style={styles.HWtwtIBl}>{"Specialty"}</Text></Pressable>
           </View>
         </View>
 

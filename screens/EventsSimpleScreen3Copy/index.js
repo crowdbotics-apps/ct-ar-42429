@@ -6,7 +6,7 @@ const EventsAdvancedScreen = () => {
       <View style={styles.container}>
         <View style={styles.header}>
           <Image source={require("./assets/back.png")} style={styles.back} />
-          <Text style={styles.heading}>Events</Text>
+          <Text style={styles.heading}>{"Online Auctions"}</Text>
           <View style={styles.IconContainer}>
             <Image source={require("./assets/star.png")} style={styles.star} />
             <Image source={require("./assets/settings.png")} style={styles.settings} />
@@ -179,9 +179,11 @@ const styles = StyleSheet.create({
     marginLeft: -20
   },
   heading: {
-    fontSize: 16,
+    fontSize: 14,
     color: "#000",
-    marginLeft: 20
+    marginLeft: 20,
+    fontWeight: "300",
+    fontFamily: "Lato"
   },
   star: {
     width: 20,
