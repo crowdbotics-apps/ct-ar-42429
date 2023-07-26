@@ -1,29 +1,23 @@
-import React from "react"
-import {
-  View,
-  Image,
-  Text,
-  ScrollView,
-  SafeAreaView,
-  StyleSheet
-} from "react-native"
+import { useNavigation } from "@react-navigation/native";
+import { Pressable } from "react-native";
+import React from "react";
+import { View, Image, Text, ScrollView, SafeAreaView, StyleSheet } from "react-native";
 
 const WelcomeScreen = () => {
-  return (
-    <SafeAreaView style={styles.container}>
+  const navigation = useNavigation();
+  return <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollView}>
         <View style={styles.group} />
         <View style={styles.group}>
-          <Image style={styles.logo} source={require("./logo.png")} />
-          <Text style={styles.text}>
-            Let's build something amazing together!
-          </Text>
+          <Pressable onPress={() => {
+          navigation.navigate("eventsAdvanced");
+        }}><Image style={styles.logo} source={require("./CaringTransitions_Logo_Large.png")} /></Pressable>
+          <Text style={styles.text}>{"Welcome Back!"}</Text>
         </View>
-        <Text style={styles.footer}>Made with ❤️ by Crowdbotics</Text>
+        <Text style={styles.footer}>{"Powered by Caring Transitions of Central Arkansas"}</Text>
       </ScrollView>
-    </SafeAreaView>
-  )
-}
+    </SafeAreaView>;
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -41,7 +35,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     height: 180,
-    width: 180,
+    width: 315,
     padding: 40,
     borderRadius: 30,
     margin: 40
@@ -49,16 +43,17 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "center",
     fontSize: 28,
-    color: "#828AB0",
-    fontWeight: 700
+    color: "#080707",
+    fontWeight: "200",
+    fontFamily: "Lato"
   },
   footer: {
     textAlign: "center",
-    fontSize: 18,
-    color: "#828AB0",
-    fontWeight: 700,
-    marginBottom: 20
+    fontSize: 10,
+    color: "#080707",
+    fontWeight: "100",
+    marginBottom: 20,
+    fontFamily: "Montserrat"
   }
-})
-
-export default WelcomeScreen
+});
+export default WelcomeScreen;
